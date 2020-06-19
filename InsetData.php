@@ -56,7 +56,7 @@ $sql = "INSERT INTO customer(customerid, customername, customerphone, address)"
         . " VALUES('$_POST[customerid]','$_POST[customername]','$_POST[customerphone]','$_POST[address]')";
 $stmt = $pdo->prepare($sql);
 //$stmt->execute();
- if (is_null($_POST[StudentID])) {
+ if (is_null($_POST[customerid])) {
    echo "CustomerID must be not null";
  }
  else
