@@ -10,12 +10,12 @@ list-style: none;
 </head>
 <body>
 <h1>INSERT DATA TO DATABASE</h1>
-<h2>Enter data into student table</h2>
+<h2>Enter data into customer table</h2>
 <ul>
     <form name="InsertData" action="InsertData.php" method="POST" >
-<li>Customer ID:</li><li><input type="text" name="customerid" /></li>
-<li>Customer Name:</li><li><input type="text" name="customername" /></li>
-<li>Customer Phone:</li><li><input type="text" name="customerphone" /></li>
+<li>Customer ID:</li><li><input type="text" name="customer_id" /></li>
+<li>Customer Name:</li><li><input type="text" name="customer_name" /></li>
+<li>Customer Phone:</li><li><input type="text" name="customer_phone" /></li>
 <li>Address:</li><li><input type="text" name="address" /></li>
 <li><input type="submit" /></li>
 </form>
@@ -44,20 +44,20 @@ if($pdo === false){
 }
 
 //Khởi tạo Prepared Statement
-//$stmt = $pdo->prepare('INSERT INTO student (stuid, fname, email, classname) values (:id, :name, :email, :class)');
+//$stmt = $pdo->prepare('INSERT INTO customer(customer_id, customer_name, customer_phone, address) values (:id, :name, :phone, :address)');
 
-//$stmt->bindParam(':id','SV03');
-//$stmt->bindParam(':name','Ho Hong Linh');
-//$stmt->bindParam(':email', 'Linhhh@fpt.edu.vn');
-//$stmt->bindParam(':class', 'GCD018');
+//$stmt->bindParam(':id','C03');
+//$stmt->bindParam(':name','Thong');
+//$stmt->bindParam(':phone', '123456789');
+//$stmt->bindParam(':address', '52 Thanh Thuy');
 //$stmt->execute();
-//$sql = "INSERT INTO student(stuid, fname, email, classname) VALUES('SV02', 'Hong Thanh','thanhh@fpt.edu.vn','GCD018')";
-$sql = "INSERT INTO customer(customerid, customername, customerphone, address)"
-        . " VALUES('$_POST[customerid]','$_POST[customername]','$_POST[customerphone]','$_POST[address]')";
+//$sql = "INSERT INTO student(customer_id, customer_name, customer_phone, address) VALUES('C03', 'Thong','123456789','52 Thanh Thuy')";
+$sql = "INSERT INTO customer(customer_id, customer_name, customer_phone, address)"
+        . " VALUES('$_POST[customer_id]','$_POST[customer_name]','$_POST[customer_phone]','$_POST[address]')";
 $stmt = $pdo->prepare($sql);
 //$stmt->execute();
- if (is_null($_POST[customerid])) {
-   echo "CustomerID must be not null";
+    if (is_null(customer_id)) {
+   echo "Customer ID must be not null";
  }
  else
  {
@@ -67,6 +67,7 @@ $stmt = $pdo->prepare($sql);
         echo "Error inserting record: ";
     }
  }
+ 
 ?>
 </body>
 </html>
