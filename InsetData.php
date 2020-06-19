@@ -13,9 +13,9 @@ list-style: none;
 <h2>Enter data into customer table</h2>
 <ul>
     <form name="InsertData" action="InsertData.php" method="POST" >
-<li>Customer ID:</li><li><input type="text" name="customer_id" /></li>
-<li>Customer Name:</li><li><input type="text" name="customer_name" /></li>
-<li>Customer Phone:</li><li><input type="text" name="customer_phone" /></li>
+<li>Customer ID:</li><li><input type="text" name="customerid" /></li>
+<li>Customer Name:</li><li><input type="text" name="customername" /></li>
+<li>Customer Phone:</li><li><input type="text" name="customerphone" /></li>
 <li>Address:</li><li><input type="text" name="address" /></li>
 <li><input type="submit" /></li>
 </form>
@@ -52,8 +52,8 @@ if($pdo === false){
 //$stmt->bindParam(':address', '52 Thanh Thuy');
 //$stmt->execute();
 //$sql = "INSERT INTO student(customer_id, customer_name, customer_phone, address) VALUES('C03', 'Thong','123456789','52 Thanh Thuy')";
-$sql = "INSERT INTO customer(customer_id, customer_name, customer_phone, address)"
-        . " VALUES('$_POST[customer_id]','$_POST[customer_name]','$_POST[customer_phone]','$_POST[address]')";
+$sql = "INSERT INTO customer(customerid, customername, customerphone, address)"
+        . " VALUES('$_POST[customerid]','$_POST[customername]','$_POST[customerphone]','$_POST[address]')";
 $stmt = $pdo->prepare($sql);
 //$stmt->execute();
     if (is_null(customer_id)) {
